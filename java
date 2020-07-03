@@ -1,3 +1,4 @@
+https://www.cnblogs.com/dolphin0520/p/3958019.html
 ###synchronized和lock的区别
 
 .Lock是一个接口，而synchronized是Java中的关键字，synchronized是内置的语言实现；
