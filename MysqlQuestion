@@ -1,3 +1,17 @@
 mac brew upgrade mysql start error
 Q: Warning:The /usr/local/mysql/data directory is not owned by the 'mysql' or '_mysql'
 A: sudo chown -R  _mysql:wheel /usr/local/mysql/data  || sudo chown -R mysql /usr/local/mysql/data
+
+create table error
+Q: mysql version 5.6.* :index column size too large. the maximum column size is 767 bytes
+A: INNODB 引擎，UTF-8，主键字符串 默认最大 767，需要修改
+1. 对数据库进行设置, 以下配置数据库重启后会失效
+set global innodb_file_format = BARRACUDA
+set global innodb_large_prefix = ON
+查看是否生效
+show variables like 'character%';
+show variables like 'collation_%';
+show variables like 'innodb_large_prefix';
+show variables like 'innodb_file_format';
+2. 对脚本进行修改，添加ROW_FORMAT=DYNAMIC
+create table test (........) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
