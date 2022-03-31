@@ -1,0 +1,3 @@
+mac brew upgrade mysql start error
+Q: Warning:The /usr/local/mysql/data directory is not owned by the 'mysql' or '_mysql'
+A: sudo chown -R  _mysql:wheel /usr/local/mysql/data  || sudo chown -R mysql /usr/local/mysql/data
